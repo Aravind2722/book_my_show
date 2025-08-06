@@ -26,7 +26,7 @@ public class Payment extends BaseModel {
     // 1 ticket can have many partial payments
     // m : 1
     @ManyToOne
-    @JoinColumn(name = "ticket_id")
+//    @JoinColumn(name = "ticket_id")
     private Ticket ticket; // check if needed
 
 }

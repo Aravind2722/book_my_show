@@ -20,7 +20,7 @@ public class Theatre extends BaseModel {
 
     // Missed:
     @ManyToOne
-    @JoinColumn(name = "city_id")
+//    @JoinColumn(name = "city_id")
     private City city;
 
 }
