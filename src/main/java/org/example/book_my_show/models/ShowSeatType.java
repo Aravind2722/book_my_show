@@ -1,8 +1,14 @@
 package org.example.book_my_show.models;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
+import lombok.Getter;
+import lombok.Setter;
 
-public class ShowSeatType {
+@Entity
+@Getter
+@Setter
+public class ShowSeatType extends BaseModel{
     // Ideally we could have had the seat type in show seat class itself
     // But, if there are 100 seats in a show, the table will store 100 entries to define the relationship
     // Example:
