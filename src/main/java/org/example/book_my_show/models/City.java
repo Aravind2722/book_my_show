@@ -1,9 +1,20 @@
 package org.example.book_my_show.models;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.List;
 
-public class City {
+@Entity
+@Getter
+@Setter
+public class City extends BaseModel {
+
     private String name;
+    @OneToMany(mappedBy = "city")
     private List<Theatre> theatres;
 
 }
