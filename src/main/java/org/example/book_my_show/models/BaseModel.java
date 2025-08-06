@@ -20,9 +20,9 @@ public class BaseModel {
     private long id;
 
     @CreatedDate
-//    @Temporal(TemporalType.TIME) missed
+    @Temporal(TemporalType.TIMESTAMP) // missed
     private Date createdAt;
     @LastModifiedDate
-//    @Temporal(TemporalType.TIME) missed
+    @Temporal(TemporalType.TIMESTAMP) // missed
     private Date lastUpdatedAt;
 }
