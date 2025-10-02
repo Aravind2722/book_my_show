@@ -48,4 +48,27 @@ public class ShowSeatServiceImpl implements IShowSeatService {
 
         return savedShowSeats;
     }
+
+    @Transactional(isolation = Isolation.SERIALIZABLE, timeout = 10)
+    public void markShowSeatsBooked(Show show, List<Seat> seats) {
+
+        List<ShowSeat> showSeats = showSeatRepository.findAllByShowAndSeatIn(show, seats);
+
+        for (ShowSeat showSeat : showSeats) {
+            showSeat.setStatus(ShowSeatStatus.BOOKED);
+            showSeat.setLockedAt(new Date());
+            showSeatRepository.save(showSeat);
+        }
+    }
+    @Transactional(isolation = Isolation.SERIALIZABLE, timeout = 10)
+    public void releaseShowSeats(Show show, List<Seat> seats) {
+
+        List<ShowSeat> showSeats = showSeatRepository.findAllByShowAndSeatIn(show, seats);
+
+        for (ShowSeat showSeat : showSeats) {
+            showSeat.setStatus(ShowSeatStatus.AVAILABLE);
+            showSeat.setLockedAt(null);
+            showSeatRepository.save(showSeat);
+        }
+    }
 }

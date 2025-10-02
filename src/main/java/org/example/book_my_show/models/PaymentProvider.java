@@ -5,4 +5,5 @@ public enum PaymentProvider {
     PAYU_MONEY,
     CCAVENUE,
     STRIPE,
+    SELF,
 }

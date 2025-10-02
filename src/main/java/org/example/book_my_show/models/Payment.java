@@ -20,7 +20,7 @@ public class Payment extends BaseModel {
     private PaymentProvider paymentProvider;
 
     // Missed:
-    private int amount;
+    private Double amount;
 
     // 1 payment would belong to only 1 ticket strictly
     // 1 ticket can have many partial payments
